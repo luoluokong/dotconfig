@@ -66,6 +66,8 @@ map <C-s> :w<CR>
 map <leader>tb :tabnew<CR>
 map <leader>n :tabnext<CR>
 
+" =========> latex
+map <leader>ll \ll
 
 """"
 """" Plugins
@@ -73,6 +75,7 @@ map <leader>n :tabnext<CR>
 call plug#begin()
 
 Plug 'connorholyday/vim-snazzy'
+Plug 'dracula/vim'
 
 Plug 'vim-airline/vim-airline'
 
@@ -90,6 +93,8 @@ Plug 'lervag/vimtex'
 
 Plug 'SirVer/ultisnips'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
@@ -104,9 +109,28 @@ map <C-x> :bwipeout<CR>
 
 " when have markdonw plugins
 " source ~/.config/scripts/nvim/markdown.vim
+"
+
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=['~/.local/share/nvim/snippets']
+
+
+" Plug 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 """"
 """" Exec
 """"
+" colorscheme dracula
 colorscheme snazzy
 exec "nohls"
